@@ -2,6 +2,8 @@ package br.com.jamesmayke.vacancy_management_system.modules.candidate.entity;
 
 import java.util.UUID;
 
+import br.com.jamesmayke.vacancy_management_system.modules.candidate.dto.CandidateRequest;
+
 public class CandidateEntity {
     private UUID id;
     private String name;
@@ -12,13 +14,13 @@ public class CandidateEntity {
 
     public CandidateEntity() {}
 
-    public CandidateEntity(String name, String username, String email, String password, String description) {
+    public CandidateEntity(CandidateRequest candidate) {
 
-        this.name = name;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.description = description;
+        this.name = candidate.name();
+        this.username = candidate.username();
+        this.email = candidate.email();
+        this.password = candidate.password();
+        this.description = candidate.description();
 
     }
     
