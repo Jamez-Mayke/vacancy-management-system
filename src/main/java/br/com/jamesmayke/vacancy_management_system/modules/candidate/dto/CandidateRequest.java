@@ -15,6 +15,7 @@ public record CandidateRequest(
     String email,
 
     @Length(min=9, message="Sua senha deve conter pelo menos 9 carácteres")
+    @Pattern(regexp="\\S+", message="Não pode conter espaços em branco")
     String password,
 
     String description
