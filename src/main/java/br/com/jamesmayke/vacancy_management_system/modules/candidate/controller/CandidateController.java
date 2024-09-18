@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.jamesmayke.vacancy_management_system.modules.candidate.dto.CandidateRequest;
 import br.com.jamesmayke.vacancy_management_system.modules.candidate.entity.CandidateEntity;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/candidate")
 public class CandidateController {
     
     @PostMapping("/")
-    public CandidateEntity create(@RequestBody CandidateRequest payload) {
+    public CandidateEntity create(@Valid @RequestBody CandidateRequest payload) {
         return new CandidateEntity(payload);
     }
 }

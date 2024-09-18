@@ -5,11 +5,17 @@ import java.util.UUID;
 import br.com.jamesmayke.vacancy_management_system.modules.candidate.dto.CandidateRequest;
 
 public class CandidateEntity {
+
     private UUID id;
+
     private String name;
+
     private String username;
+
     private String email;
+    
     private String password;
+    
     private String description;
 
     public CandidateEntity() {}
