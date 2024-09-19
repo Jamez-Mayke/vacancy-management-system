@@ -27,7 +27,7 @@ Git
 
 ## Passos para clonar o projeto e rodar localmente:
 1. Clone o repositório:
-    git clone https://github.com/seu-usuario/gestao-vagas.git
+    git clone https://github.com/Jamez-Mayke/vacancy-management-system
 
 2. Compile o projeto com Maven:
     mvn clean install
