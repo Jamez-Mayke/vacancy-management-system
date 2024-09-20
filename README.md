@@ -17,6 +17,9 @@ A aplicação tem como objetivo permitir o gerenciamento de candidatos que aplic
 * Spring Boot 3
 * Spring Data JPA - Para persistência de dados
 * Lombok - Para reduzir o boilerplate de código
+* Flyway Migration
+* Validation
+* PostgreSQL Driver
 ...
 
 ## Instalação
