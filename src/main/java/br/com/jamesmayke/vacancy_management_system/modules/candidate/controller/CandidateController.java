@@ -20,10 +20,14 @@ public class CandidateController {
     @Autowired CandidateUseCase candidateUseCase;
     
     @PostMapping("/")
-    public ResponseEntity<CandidateResponse> create(@Valid @RequestBody CandidateRequest payload) {
+    public ResponseEntity<Object> create(@Valid @RequestBody CandidateRequest payload) {
 
-       CandidateResponse candidate = this.candidateUseCase.execute(payload);
-
-       return ResponseEntity.status(HttpStatus.CREATED).body(candidate);
+        try {
+            CandidateResponse candidate = this.candidateUseCase.execute(payload);
+            return ResponseEntity.status(HttpStatus.CREATED).body(candidate);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(e.getMessage());
+        }
+       
     }
 }
