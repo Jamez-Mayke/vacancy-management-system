@@ -26,7 +26,7 @@ public class CandidateController {
             CandidateResponse candidate = this.candidateUseCase.execute(payload);
             return ResponseEntity.status(HttpStatus.CREATED).body(candidate);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
        
     }
