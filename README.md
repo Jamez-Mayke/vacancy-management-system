@@ -3,23 +3,24 @@
 
 ### Projeto em desenvolvimento
 Ainda estou desenvolvendo a aplicação.
-Último Update: 19.09.2024
+Último Update: 21.09.2024
 
 ## Visão Geral
-A aplicação tem como objetivo permitir o gerenciamento de candidatos que aplicam para vagas em uma empresa. Ela possibilita o cadastro de candidatos, registro de candidaturas a uma vaga, listagem de vagas, e outras operações relacionadas ao processo de recrutamento.
+A aplicação tem como objetivo permitir o gerenciamento de candidatos que aplicam para vagas em uma empresa. Ela possibilita o cadastro de candidatos e companhias, registro de candidaturas a uma vaga que existe registrada em uma companhia, listagem de vagas, e outras operações relacionadas ao processo de recrutamento.
 
 # Funcionalidades
 * Criação de Candidatos
+* Criação de Companhia
 ...
 
 ## Tecnologias Utilizadas
 * Java 17
 * Spring Boot 3
-* Spring Data JPA - Para persistência de dados
-* Lombok - Para reduzir o boilerplate de código
-* Flyway Migration
-* Validation
+* Spring Data JPA
 * PostgreSQL Driver
+* Flyway Migration
+* Lombok
+* Validation
 ...
 
 ## Instalação
