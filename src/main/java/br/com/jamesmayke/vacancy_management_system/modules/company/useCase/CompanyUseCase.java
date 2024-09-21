@@ -15,13 +15,13 @@ public class CompanyUseCase {
 
     public Company execute(Company payload) {
         this.companyRepository
-            .findByUsernameOrEmail(payload.getUsername(), payload.getEmail())
-            .ifPresent(
-                company -> {
-                    throw new UserFoundException();
-                }
-            );
-
-           return this.companyRepository.save(payload);
+        .findByUsernameOrEmail(payload.getUsername(), payload.getEmail())
+        .ifPresent(
+            company -> {
+                throw new UserFoundException();
+            }
+        );
+        
+        return this.companyRepository.save(payload);
     }
 }
