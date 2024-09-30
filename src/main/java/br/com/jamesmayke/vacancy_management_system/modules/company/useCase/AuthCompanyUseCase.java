@@ -1,5 +1,8 @@
 package br.com.jamesmayke.vacancy_management_system.modules.company.useCase;
 
+import java.time.Duration;
+import java.time.Instant;
+
 import javax.naming.AuthenticationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +48,7 @@ public class AuthCompanyUseCase {
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
         return JWT.create()
             .withIssuer("javagas")
+            .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
             .withSubject(company.getId().toString())
             .sign(algorithm);
     }
