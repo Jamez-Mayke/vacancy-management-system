@@ -56,13 +56,13 @@ public class Job {
     }
 
     private Job(Builder builder) {
-        // this.id = builder.id;
+        this.id = builder.id;
         this.level = builder.level;
         this.description = builder.description;
         this.benefits = builder.benefits;
-        // this.company = builder.company;
+        this.company = builder.company;
         this.companyId = builder.companyId;
-        // this.createdAt = builder.createdAt;
+        this.createdAt = builder.createdAt;
     }
 
     public static Builder builder() {
