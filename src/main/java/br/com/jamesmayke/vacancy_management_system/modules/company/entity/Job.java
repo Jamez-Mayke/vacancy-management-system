@@ -96,6 +96,5 @@ public class Job {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
-
     
 }

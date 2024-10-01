@@ -16,11 +16,12 @@ public class JWTProvider {
     
     public String validateToken(String token) {
         token = token.replace("Bearer ", "");
-
+        
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
 
         try {
-            return JWT.require(algorithm).build().verify(token).getSubject();
+            var subjectToken = JWT.require(algorithm).build().verify(token).getSubject();
+            return subjectToken;
         } catch (JWTVerificationException ex) {
             return "";
         }

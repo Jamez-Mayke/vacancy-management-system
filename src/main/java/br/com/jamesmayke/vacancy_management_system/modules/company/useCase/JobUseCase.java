@@ -13,6 +13,6 @@ public class JobUseCase {
     private JobRepository jobRepository;
     
     public Job execute(Job payload) {
-       return this.jobRepository.save(payload);
+        return this.jobRepository.save(payload);
     }
 }
