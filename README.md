@@ -3,7 +3,7 @@
 
 ### Projeto em desenvolvimento
 Ainda estou desenvolvendo a aplicação.
-Último Update: 21.09.2024
+Último Update: 30.09.2024
 
 ## Visão Geral
 A aplicação tem como objetivo permitir o gerenciamento de candidatos que aplicam para vagas em uma empresa. Ela possibilita o cadastro de candidatos e companhias, registro de candidaturas a uma vaga que existe registrada em uma companhia, listagem de vagas, e outras operações relacionadas ao processo de recrutamento.
@@ -11,6 +11,8 @@ A aplicação tem como objetivo permitir o gerenciamento de candidatos que aplic
 # Funcionalidades
 * Criação de Candidatos
 * Criação de Companhia
+* Criação de Vaga
+* Login da Companhia
 ...
 
 ## Tecnologias Utilizadas
@@ -21,6 +23,7 @@ A aplicação tem como objetivo permitir o gerenciamento de candidatos que aplic
 * Flyway Migration
 * Lombok
 * Validation
+* JWT
 ...
 
 ## Instalação
