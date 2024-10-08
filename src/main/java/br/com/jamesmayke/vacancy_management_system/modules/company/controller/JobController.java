@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.jamesmayke.vacancy_management_system.modules.company.dto.JobRequestDTO;
 import br.com.jamesmayke.vacancy_management_system.modules.company.dto.JobResponseDTO;
-import br.com.jamesmayke.vacancy_management_system.modules.company.entity.Job;
 import br.com.jamesmayke.vacancy_management_system.modules.company.useCase.JobUseCase;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -27,14 +26,7 @@ public class JobController {
 
         var companyId = request.getAttribute("company_id");
 
-        var job = Job.builder()
-            .setLevel(jobRequestDTO.level())
-            .setBenefits(jobRequestDTO.benefits())
-            .setCompanyId(UUID.fromString(companyId.toString()))
-            .setDescription(jobRequestDTO.description())
-            .build();
-
-        var jobResponse = this.JobUseCase.execute(job);
+        var jobResponse = this.JobUseCase.createAndSaveJob(jobRequestDTO, UUID.fromString(companyId.toString()));
 
         return new JobResponseDTO(jobResponse.getId());
     };

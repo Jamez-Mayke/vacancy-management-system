@@ -1,8 +1,11 @@
 package br.com.jamesmayke.vacancy_management_system.modules.company.useCase;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.jamesmayke.vacancy_management_system.modules.company.dto.JobRequestDTO;
 import br.com.jamesmayke.vacancy_management_system.modules.company.entity.Job;
 import br.com.jamesmayke.vacancy_management_system.modules.company.repository.JobRepository;
 
@@ -12,7 +15,16 @@ public class JobUseCase {
     @Autowired
     private JobRepository jobRepository;
     
-    public Job execute(Job payload) {
-        return this.jobRepository.save(payload);
+    public Job createAndSaveJob(JobRequestDTO jobRequestDTO, UUID companyId) {
+        return this.jobRepository.save(createJob(jobRequestDTO, companyId));
+    }
+
+    private Job createJob(JobRequestDTO jobRequestDTO, UUID companyId) {
+        return Job.builder()
+        .setLevel(jobRequestDTO.level())
+        .setBenefits(jobRequestDTO.benefits())
+        .setCompanyId(companyId)
+        .setDescription(jobRequestDTO.description())
+        .build();
     }
 }
