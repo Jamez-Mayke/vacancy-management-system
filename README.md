@@ -3,17 +3,20 @@
 
 ### Projeto em desenvolvimento
 Ainda estou desenvolvendo a aplicação.
-Último Update: 30.09.2024
+Último Update: 15.10.2024
 
 ## Visão Geral
 A aplicação tem como objetivo permitir o gerenciamento de candidatos que aplicam para vagas em uma empresa. Ela possibilita o cadastro de candidatos e companhias, registro de candidaturas a uma vaga que existe registrada em uma companhia, listagem de vagas, e outras operações relacionadas ao processo de recrutamento.
 
 # Funcionalidades
 * Criação de Candidatos
+* Login autenticado do candidato
+* Busca de dados do candidato
 * Criação de Companhia
-* Criação de Vaga
-* Login da Companhia
-...
+* Login autenticado do companhia
+* Busca de dados da companhia cadastrada
+* Criação de Vaga por credencial da empresa cadastrada
+* Busca da Vaga por Id
 
 ## Tecnologias Utilizadas
 * Java 17
@@ -24,7 +27,7 @@ A aplicação tem como objetivo permitir o gerenciamento de candidatos que aplic
 * Lombok
 * Validation
 * JWT
-...
+* Spring Security
 
 ## Instalação
 ### Pré-requisitos
