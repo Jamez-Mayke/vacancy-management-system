@@ -2,6 +2,7 @@ package br.com.jamesmayke.vacancy_management_system.modules.company.useCase;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Arrays;
 
 import javax.naming.AuthenticationException;
 
@@ -15,6 +16,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
 import br.com.jamesmayke.vacancy_management_system.modules.company.dto.AuthCompanyDTO;
+import br.com.jamesmayke.vacancy_management_system.modules.company.dto.AuthCompanyResponseDTO;
 import br.com.jamesmayke.vacancy_management_system.modules.company.repository.CompanyRepository;
 
 @Service
@@ -29,7 +31,7 @@ public class AuthCompanyUseCase {
     @Autowired
     private PasswordEncoder passwordEncoder;
     
-    public String execute(AuthCompanyDTO authCompanyDTO) throws AuthenticationException {
+    public AuthCompanyResponseDTO execute(AuthCompanyDTO authCompanyDTO) throws AuthenticationException {
 
         var company = this.companyRepository.findByUsername(authCompanyDTO.username())
             .orElseThrow(
@@ -46,10 +48,14 @@ public class AuthCompanyUseCase {
         }
 
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
-        return JWT.create()
+        var expiresIn = Instant.now().plus(Duration.ofHours(2));
+        var token = JWT.create()
             .withIssuer("javagas")
-            .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
+            .withExpiresAt(expiresIn)
+            .withClaim("roles", Arrays.asList("COMPANY"))
             .withSubject(company.getId().toString())
             .sign(algorithm);
+
+        return new AuthCompanyResponseDTO(token, expiresIn.toEpochMilli());
     }
 }
