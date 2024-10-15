@@ -1,5 +1,6 @@
 package br.com.jamesmayke.vacancy_management_system.modules.company.useCase;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,9 @@ public class JobUseCase {
         .setCompanyId(companyId)
         .setDescription(jobRequestDTO.description())
         .build();
+    }
+
+    public Optional<Job> getJob(UUID id) {
+        return this.jobRepository.findById(id);
     }
 }
