@@ -3,6 +3,7 @@ package br.com.jamesmayke.vacancy_management_system.modules.company.controller;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/company/job")
+@PreAuthorize("hasRole('COMPANY')")
 public class JobController {
 
     @Autowired
