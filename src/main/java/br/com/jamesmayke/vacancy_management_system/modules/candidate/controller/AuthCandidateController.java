@@ -14,14 +14,14 @@ import br.com.jamesmayke.vacancy_management_system.modules.candidate.dto.AuthCan
 import br.com.jamesmayke.vacancy_management_system.modules.candidate.useCases.AuthCandidateUseCase;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/candidate")
 public class AuthCandidateController {
     
     @Autowired
     private AuthCandidateUseCase authCandidateUseCase;
 
 
-    @PostMapping("/candidate")
+    @PostMapping("/auth")
     public ResponseEntity<Object> create(@RequestBody AuthCandidateDTO authCandidateDTO) {
         try {
             var result = this.authCandidateUseCase.execute(authCandidateDTO);
